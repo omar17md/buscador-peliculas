@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Buscador de Peliculas</title>
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="row row-cols-2">
+            <div class="col menu d-flex flex-row align-items-center">
+                <ul class="nav flex-column">
+                    <li>
+                        <h1>Buscador de Peliculas</h1>
+                    </li>
+                    <li class="form-floating">
+                        <input type="text" class="form-control" id="title" placeholder="">
+                        <label for="fortitle">Nombre de la pelicula</label>
+                    </li>
+                    <li class="form-floating">
+                        <input type="text" class="form-control" id="year" placeholder="">
+                        <label for="forYear">Año de la pelicula</label>
+                    </li>
+                    <li>
+                        <select class="form-select" id="genres">
+                            <option value selected>Seleccione un genero</option>
+                            <option value="Short">Drama</option>
+                            <option value="Telenovela">Telenovela</option>
+                            <option value="Acción">Acción</option>
+                            <option value="Misterio">Misterio</option>
+                        </select>
+                    </li>
+                    <li class="form-floating">
+                        <input type="text" class="form-control" id="cast" placeholder="">
+                        <label for="forCast">Nombre del reparto</label>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary" onclick="BuscarPelicula();">Buscar</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col peliculas">
+                <div class="row row-cols-3 d-flex justify-content-evenly" id="box-pelicula">
+                  <div class="alert alert-danger fs-2 w-100 mt-5 d-flex justify-content-center">
+                    No se encontro ningun resultado para la busqueda
+                  </div>                
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <script src="js/movies.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

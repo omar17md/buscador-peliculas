@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+
+
+.col { 
+    min-height: 100vh; 
+}
+
+.menu{
+    background: red;
+    width: 20%;
+    position: fixed;
+    z-index: 100;
+}
+
+.peliculas{
+    background: rebeccapurple;
+    margin-left: 20%;
+    width: 80%;
+}
+
