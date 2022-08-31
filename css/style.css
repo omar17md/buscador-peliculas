@@ -2,20 +2,23 @@ body{
     margin: 0;
 }
 
+li{
+    margin-bottom: 5%;
+}
 
 .col { 
     min-height: 100vh; 
 }
 
 .menu{
-    background: red;
     width: 20%;
     position: fixed;
     z-index: 100;
+    background-image: url('../img/fondo.jpg');
 }
 
 .peliculas{
-    background: rebeccapurple;
+    background: black;
     margin-left: 20%;
     width: 80%;
 }

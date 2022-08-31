@@ -14,23 +14,19 @@
             <div class="col menu d-flex flex-row align-items-center">
                 <ul class="nav flex-column">
                     <li>
-                        <h1>Buscador de Peliculas</h1>
+                        <h1 class="text-light">Buscador de Peliculas</h1>
                     </li>
                     <li class="form-floating">
                         <input type="text" class="form-control" id="title" placeholder="">
                         <label for="fortitle">Nombre de la pelicula</label>
                     </li>
                     <li class="form-floating">
-                        <input type="text" class="form-control" id="year" placeholder="">
+                        <input type="text" class="form-control" id="year" placeholder="" maxlength="4" onkeypress="return valideKey(event);">
                         <label for="forYear">Año de la pelicula</label>
                     </li>
                     <li>
                         <select class="form-select" id="genres">
                             <option value selected>Seleccione un genero</option>
-                            <option value="Short">Drama</option>
-                            <option value="Telenovela">Telenovela</option>
-                            <option value="Acción">Acción</option>
-                            <option value="Misterio">Misterio</option>
                         </select>
                     </li>
                     <li class="form-floating">
@@ -39,6 +35,7 @@
                     </li>
                     <li>
                         <button type="button" class="btn btn-primary" onclick="BuscarPelicula();">Buscar</button>
+                        <button type="button" class="btn btn-danger" id="btnReiniciar" style="visibility: hidden;" onclick="ReiniciarCampos();">Reiniciar Busqueda</button>
                     </li>
                 </ul>
             </div>

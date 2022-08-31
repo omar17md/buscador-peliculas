@@ -3,6 +3,7 @@ const title =  document.querySelector('#title');
 const genres =  document.querySelector('#genres');
 const year =  document.querySelector('#year');
 const cast =  document.querySelector('#cast');
+const btnReiniciar =  document.querySelector('#btnReiniciar');
 const movies = JSON.parse(file).results;
 
 const pelicula = {
@@ -13,9 +14,30 @@ const pelicula = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    CargarGenres();
     MostrarHTML(movies);
 });
 
+function CargarGenres(){
+    let generos = [];
+
+    movies.forEach(movie => {
+
+        movie.genres.forEach(genero => {
+            if(!generos.includes(genero)){
+                generos.push(genero);
+            }
+        });
+    });
+
+
+    generos.forEach(genero => {
+        const opcionGenero =  document.createElement('option');
+        opcionGenero.value = genero;
+        opcionGenero.innerHTML = genero;
+        genres.appendChild(opcionGenero);
+    });
+}
 
 function MostrarHTML(movies){
     LimpiarPeliculas();
@@ -45,9 +67,15 @@ function BuscarPelicula() {
     pelicula.genero = genres.value;
     pelicula.year = year.value;
     pelicula.reparto = cast.value;
+    
+    if (pelicula.titulo != "" || pelicula.genero != "" ||
+        pelicula.year != "" || pelicula.reparto != "") 
+    {
+        FiltrarPelicula();
+        LimpiarCampos();
+    }
 
-    FiltrarPelicula();
-    LimpiarCampos();
+
 };
 
 function FiltrarPelicula(){
@@ -58,10 +86,12 @@ function FiltrarPelicula(){
     }else{
         sinResultados();
     }  
+
+    btnReiniciar.style.visibility = "visible"; 
 };
 
 function FilterTitle(movie){
-    return pelicula.titulo ?  movie.title == pelicula.titulo : movies;
+    return pelicula.titulo ?  movie.title.replace(/ /g, "").toLowerCase()  == pelicula.titulo.replace(/ /g, "").toLowerCase()  : movies;
 };
 
 function FilterYear(movie){
@@ -75,8 +105,6 @@ function FilterCast(movie){
 function Filtergenres(movie){
     return pelicula.genero ? movie.genres.includes(pelicula.genero) : movies;
 };
-
-
 
 function LimpiarPeliculas(){
     while(boxPelicula.firstChild){
@@ -99,3 +127,31 @@ function LimpiarCampos(){
     year.value = "";
     cast.value = "";
 }
+
+function ReiniciarCampos(){
+    LimpiarPeliculas();
+    LimpiarCampos();
+    MostrarHTML(movies);
+
+    btnReiniciar.style.visibility = "hidden"; 
+}
+
+
+function valideKey(evt){
+    
+    var code = (evt.which) ? evt.which : evt.keyCode;
+    
+    if(code==8) { 
+      return true;
+    } else if(code>=48 && code<=57) { 
+      return true;
+    } else{ 
+      return false;
+    }
+}
+
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        BuscarPelicula();
+    }
+});
