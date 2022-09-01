@@ -32,7 +32,7 @@ document.addEventListener("keyup", function(event) {
 });
 
 window.onload = function () {
-    setInterval(change, 5000);
+    setInterval(change, 25000);
 };
 
 
