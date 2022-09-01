@@ -112,7 +112,7 @@ function FiltrarPelicula(){
 };
 
 function FilterTitle(movie){
-    return pelicula.titulo ?  movie.title.replace(/ /g, "").toLowerCase().includes(pelicula.titulo.replace(/ /g, "").toLowerCase())  : movies;
+    return pelicula.titulo ?  movie.title.replace(/ /g, "").toLowerCase() == pelicula.titulo.replace(/ /g, "").toLowerCase() : movies;
 };
 
 function FilterYear(movie){
@@ -121,7 +121,7 @@ function FilterYear(movie){
 
 function FilterCast(movie){
     return pelicula.reparto ? 
-    movie.cast.join("").replace(/ /g, "").toLowerCase().includes(pelicula.reparto.replace(/ /g, "").toLowerCase()) : movies;
+    movie.cast.join("").replace(/ /g, "").toLowerCase() == pelicula.reparto.replace(/ /g, "").toLowerCase() : movies;
 };
 
 function Filtergenres(movie){
