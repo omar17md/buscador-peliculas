@@ -32,7 +32,7 @@ document.addEventListener("keyup", function(event) {
 });
 
 window.onload = function () {
-    setInterval(change, 30000);
+    setInterval(change, 5000);
 };
 
 
@@ -160,7 +160,7 @@ function ReiniciarCampos(){
 
 function change() {
     indexImg + 1 == 6 ? indexImg = 1 : indexImg++;
-    menu.style.backgroundImage = `url(../img/fondo${indexImg}.jpg)`;
+    menu.style.backgroundImage = `url(https://raw.githubusercontent.com/omar17md/buscador-peliculas/main/img/fondo${indexImg}.jpg)`;
  }
 
  function valideKey(evt){
