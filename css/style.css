@@ -10,11 +10,13 @@ li{
     min-height: 100vh; 
 }
 
+
 .menu{
     width: 20%;
     position: fixed;
     z-index: 100;
-    background-image: url('../img/fondo.jpg');
+    background-image: url('../img/fondo1.jpg');  
+    max-width: 100%;
 }
 
 .peliculas{
@@ -23,3 +25,6 @@ li{
     width: 80%;
 }
 
+#box-pelicula div:hover{
+    background-color: wheat;
+}

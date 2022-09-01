@@ -11,10 +11,10 @@
 <body>
     <div class="container-fluid ">
         <div class="row row-cols-2">
-            <div class="col menu d-flex flex-row align-items-center">
+            <div class="col menu d-flex flex-row align-items-center" id="barra">
                 <ul class="nav flex-column">
                     <li>
-                        <h1 class="text-light">Buscador de Peliculas</h1>
+                        <h1 class="text-light bg-dark">Buscador de Peliculas</h1>
                     </li>
                     <li class="form-floating">
                         <input type="text" class="form-control" id="title" placeholder="">
@@ -34,8 +34,8 @@
                         <label for="forCast">Nombre del reparto</label>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-primary" onclick="BuscarPelicula();">Buscar</button>
-                        <button type="button" class="btn btn-danger" id="btnReiniciar" style="visibility: hidden;" onclick="ReiniciarCampos();">Reiniciar Busqueda</button>
+                        <button type="button" class="btn btn-info btn-lg" onclick="BuscarPelicula();">Buscar</button>
+                        <button type="button" class="btn btn-success btn-lg" id="btnReiniciar" style="visibility: hidden;" onclick="ReiniciarCampos();">Reiniciar Busqueda</button>
                     </li>
                 </ul>
             </div>

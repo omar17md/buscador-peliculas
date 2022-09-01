@@ -1,10 +1,14 @@
+/************ Declaracion de Variables ************/
+
 const boxPelicula = document.querySelector('#box-pelicula');
+const menu = document.querySelector('#barra');
 const title =  document.querySelector('#title');
 const genres =  document.querySelector('#genres');
 const year =  document.querySelector('#year');
 const cast =  document.querySelector('#cast');
 const btnReiniciar =  document.querySelector('#btnReiniciar');
 const movies = JSON.parse(file).results;
+let indexImg = 1;
 
 const pelicula = {
     titulo : "",
@@ -13,10 +17,27 @@ const pelicula = {
     genero : ""
 }
 
+
+/************Eventos************/
+
 document.addEventListener('DOMContentLoaded', () => {
     CargarGenres();
     MostrarHTML(movies);
 });
+
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        BuscarPelicula();
+    }
+});
+
+window.onload = function () {
+    setInterval(change, 30000);
+};
+
+
+
+/************ Funciones ************/
 
 function CargarGenres(){
     let generos = [];
@@ -91,7 +112,7 @@ function FiltrarPelicula(){
 };
 
 function FilterTitle(movie){
-    return pelicula.titulo ?  movie.title.replace(/ /g, "").toLowerCase()  == pelicula.titulo.replace(/ /g, "").toLowerCase()  : movies;
+    return pelicula.titulo ?  movie.title.replace(/ /g, "").toLowerCase().includes(pelicula.titulo.replace(/ /g, "").toLowerCase())  : movies;
 };
 
 function FilterYear(movie){
@@ -99,7 +120,8 @@ function FilterYear(movie){
 };
 
 function FilterCast(movie){
-    return pelicula.reparto ? movie.cast.includes(pelicula.reparto) : movies;
+    return pelicula.reparto ? 
+    movie.cast.join("").replace(/ /g, "").toLowerCase().includes(pelicula.reparto.replace(/ /g, "").toLowerCase()) : movies;
 };
 
 function Filtergenres(movie){
@@ -136,8 +158,12 @@ function ReiniciarCampos(){
     btnReiniciar.style.visibility = "hidden"; 
 }
 
+function change() {
+    indexImg + 1 == 6 ? indexImg = 1 : indexImg++;
+    menu.style.backgroundImage = `url(../img/fondo${indexImg}.jpg)`;
+ }
 
-function valideKey(evt){
+ function valideKey(evt){
     
     var code = (evt.which) ? evt.which : evt.keyCode;
     
@@ -150,8 +176,3 @@ function valideKey(evt){
     }
 }
 
-document.addEventListener("keyup", function(event) {
-    if (event.code === 'Enter') {
-        BuscarPelicula();
-    }
-});
